@@ -8,14 +8,15 @@ from .models import EnFrTranslation
 
 from ai.ai_models import AiModel
 from ai.postprocessing import translation_parse_preds
+from ai.predictors import TorchPredictor
 
 
 class EnFrTranslationViewSet(viewsets.ModelViewSet):
     queryset = EnFrTranslation.objects.all()
     serializer_class = EnFrTranslationSerializer
     ai_model = AiModel(
-        pipeline("translation_en_to_fr", model="Helsinki-NLP/opus-mt-en-fr"),
-        type_="pytorch",
+        predictor=TorchPredictor,
+        model=pipeline("translation_en_to_fr", model="Helsinki-NLP/opus-mt-en-fr"),
         postprocessing=[translation_parse_preds],
     )
 

@@ -1,10 +1,10 @@
 import numpy as np
 import string
-from keras.utils import pad_sequences
-from keras.datasets import imdb
+import cv2
+from tensorflow.keras.utils import pad_sequences
+from tensorflow.keras.datasets import imdb
 from transformers import DetrImageProcessor
 from tensorflow import keras
-import cv2
 from tensorflow.keras.applications import resnet50
 
 

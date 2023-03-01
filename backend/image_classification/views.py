@@ -12,6 +12,7 @@ from .models import ImageClassification
 from ai.ai_models import AiModel
 from ai.postprocessing import classification_resnet50_parse_preds
 from ai.preprocessing import classification_resnet50_normalize_image
+from ai.predictors import KerasPredictor
 
 
 class ImageClassificationViewSet(viewsets.ModelViewSet):
@@ -19,8 +20,8 @@ class ImageClassificationViewSet(viewsets.ModelViewSet):
     serializer_class = ImageClassificationSerializer
 
     ai_model = AiModel(
-        ResNet50(weights="imagenet"),
-        type_="keras",
+        predictor=KerasPredictor,
+        model=ResNet50(weights="imagenet"),
         preprocessing=[classification_resnet50_normalize_image],
         postprocessing=[classification_resnet50_parse_preds],
     )

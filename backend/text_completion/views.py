@@ -7,14 +7,17 @@ from .serializers import EnTextCompletionSerializer
 from .models import EnTextCompletion
 
 from ai.ai_models import AiModel
+from ai.postprocessing import text_completion_parse_preds
+from ai.predictors import TorchPredictor
 
 
 class EnTextCompletionViewSet(viewsets.ModelViewSet):
     queryset = EnTextCompletion.objects.all()
     serializer_class = EnTextCompletionSerializer
     ai_model = AiModel(
-        pipeline("text-generation", model="gpt2"),
-        type_="pytorch",
+        predictor=TorchPredictor,
+        model=pipeline("text-generation", model="gpt2"),
+        postprocessing=[text_completion_parse_preds],
     )
     set_seed(42)
 

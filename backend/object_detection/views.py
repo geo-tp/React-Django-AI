@@ -14,6 +14,7 @@ from ai.preprocessing import (
     detr_resnet50_normalize_image,
 )
 from ai.postprocessing import detr_resnet50_parse_preds
+from ai.predictors import TorchImagePredictor
 
 
 class ObjectDetectionViewSet(viewsets.ModelViewSet):
@@ -21,8 +22,8 @@ class ObjectDetectionViewSet(viewsets.ModelViewSet):
     serializer_class = ObjectDetectionSerializer
 
     ai_model = AiModel(
-        DetrForObjectDetection.from_pretrained("facebook/detr-resnet-50"),
-        type_="pytorch",
+        predictor=TorchImagePredictor,
+        model=DetrForObjectDetection.from_pretrained("facebook/detr-resnet-50"),
         preprocessing=[detr_resnet50_normalize_image],
         postprocessing=[detr_resnet50_parse_preds],
     )

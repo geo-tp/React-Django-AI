@@ -6,6 +6,7 @@ from rest_framework import status
 from rest_framework.response import Response
 
 from tensorflow.keras.applications.resnet50 import ResNet50
+from tensorflow.keras.models import load_model
 
 from .serializers import SentimentAnalysisSerializer
 from .models import SentimentAnalysis
@@ -16,6 +17,7 @@ from ai.preprocessing import (
     pad_integer_sequences,
 )
 from ai.postprocessing import sentiment_analysis_parse_preds
+from ai.predictors import KerasPredictor
 
 
 class SentimentAnalysisViewSet(viewsets.ModelViewSet):
@@ -26,8 +28,8 @@ class SentimentAnalysisViewSet(viewsets.ModelViewSet):
         path[0] + "/ai/keras_models/embeddings_sentiment_analysis.h5"
     )
     ai_model = AiModel(
-        model_path=keras_sentiment_analyser_path,
-        type_="keras",
+        predictor=KerasPredictor,
+        model=load_model(keras_sentiment_analyser_path),
         preprocessing=[
             remove_special_char,
             imdb_sentences_to_integer,
