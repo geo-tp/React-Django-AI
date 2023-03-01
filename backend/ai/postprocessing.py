@@ -1,5 +1,6 @@
-from transformers import DetrImageProcessor, DetrForObjectDetection
+import json
 import torch
+from transformers import DetrImageProcessor, DetrForObjectDetection
 from tensorflow.keras.applications import resnet50
 
 DETR_RESNET_PROCESSOR = DetrImageProcessor.from_pretrained("facebook/detr-resnet-50")
@@ -8,48 +9,48 @@ DETR_RESNET_LABELS = DetrForObjectDetection.from_pretrained(
 ).config.id2label
 
 
-def classification_resnet50_parse_preds(preds, data=None) -> list:
+def classification_resnet50_parse_preds(preds, data=None) -> str:
     """ "Parse results of resnet50 classifier"""
 
     decoded_preds = resnet50.decode_predictions(preds, top=3)[0]
-    parsed_preds = []
+    parsed_preds = {}
 
-    for prediction in decoded_preds:
+    for i, prediction in enumerate(decoded_preds):
         name = prediction[1].replace("_", " ").capitalize()
         percent = prediction[2] * 100
-        parsed_preds.append({"name": name, "percent": percent})
+        parsed_preds[i] = {"label": name, "percent": percent}
 
-    return parsed_preds
+    return json.dumps(parsed_preds)
 
 
-def detr_resnet50_parse_preds(preds, data) -> list:
+def detr_resnet50_parse_preds(preds, data) -> str:
     """ "Parse results of resnet50 object detector"""
 
     # convert outputs (bounding boxes and class logits) to COCO API
     # let's only keep detections with score > 0.9
 
-    print("DATA", data, type(data), data.size)
     target_sizes = torch.tensor([data.size[::-1]])
 
     results = DETR_RESNET_PROCESSOR.post_process_object_detection(
         preds, target_sizes=target_sizes, threshold=0.9
     )[0]
 
-    parsed_results = []
+    parsed_results = {}
+    j = 1
     for score, label, box in zip(
         results["scores"], results["labels"], results["boxes"]
     ):
         box = [round(i, 2) for i in box.tolist()]
 
-        parsed_results.append(
-            {
-                "label": DETR_RESNET_LABELS[label.item()],
-                "score": score.item(),
-                "location": box,
-            }
-        )
+        parsed_results[j] = {
+            "label": DETR_RESNET_LABELS[label.item()],
+            "percent": score.item() * 100,
+            "location": {"x1": box[0], "y1": box[1], "x2": box[2], "y2": box[3]},
+        }
 
-    return parsed_results
+        j += 1
+
+    return json.dumps(parsed_results)
 
 
 def translation_parse_preds(preds, data=None) -> str:
