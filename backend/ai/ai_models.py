@@ -9,7 +9,7 @@ class AiModel:
     def __init__(
         self,
         predictor,
-        model=None,
+        model,
         preprocessing=[],
         postprocessing=[],
     ):
