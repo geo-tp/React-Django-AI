@@ -1,0 +1,63 @@
+.image-upload {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border: 2px dashed $color3;
+  border-radius: 20px;
+  color: $color3;
+  margin-bottom: 10px;
+
+  & label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    & span {
+      font-size: 1.5em;
+    }
+
+    & i {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+  }
+  & input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__preview {
+    & img {
+      border-radius: 10px;
+      position: absolute;
+      object-fit: contain;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    & i {
+      background-color: $color6;
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: $color9;
+      padding: 4px 6px;
+      margin: 10px;
+      border-radius: 100%;
+    }
+  }
+}

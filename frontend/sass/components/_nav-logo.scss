@@ -1,0 +1,52 @@
+.nav-logo {
+  display: flex;
+  align-items: center;
+  padding-left: 3px;
+
+  &__icon {
+    border-radius: 100%;
+    border: 2px solid $color5;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    background-color: $color2;
+
+    & img {
+      width: 22px;
+    }
+  }
+
+  & h1 {
+    position: relative;
+    padding: 2px;
+    padding-left: 20px;
+    padding-right: 30px;
+    margin: 0;
+    display: flex;
+    background-color: $color3;
+    align-items: center;
+    border-radius: 30px;
+    left: -20px;
+    border: 1px solid $color5;
+    & span:first-child {
+      font-weight: lighter;
+      color: $color9;
+      font-size: 0.7em;
+      padding-left: 7px;
+    }
+
+    & span:last-child {
+      color: $color5;
+      font-size: 0.4em;
+      position: absolute;
+      top: 4px;
+      right: 10px;
+      background-color: $color2;
+      border-radius: 100%;
+      padding: 1px 3px;
+    }
+  }
+}

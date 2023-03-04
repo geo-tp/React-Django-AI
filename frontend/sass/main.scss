@@ -1,0 +1,21 @@
+@import "./utils/variables";
+
+@import "./base/fonts";
+@import "./base/global";
+
+@import "./components/nav-logo";
+@import "./components/base-nav-link";
+@import "./components/info-banner";
+@import "./components/card";
+@import "./components/text-input";
+@import "./components/base_button";
+@import "./components/prediction-text";
+@import "./components/prediction-table";
+@import "./components/prediction-form";
+@import "./components/loader";
+@import "./components/image-upload";
+
+@import "./layouts/header";
+@import "./layouts/footer";
+
+@import "./containers/card-container";

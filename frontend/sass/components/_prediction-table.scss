@@ -1,0 +1,57 @@
+.prediction-table {
+  border-radius: 20px;
+  border: 1px solid $color3;
+  min-width: 220px;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &__placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $color2;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $color3;
+
+    & i {
+      font-size: 6em;
+      color: $color3;
+    }
+  }
+
+  & tr {
+    & td {
+    }
+  }
+
+  & td {
+    border-bottom: 1px solid $color3;
+  }
+
+  & thead {
+    text-align: left;
+
+    & th {
+      border-bottom: 1px solid $color3;
+    }
+  }
+
+  & tbody {
+    padding: 2px 5px;
+    min-height: 170px;
+    text-align: left;
+    font-size: 0.7em;
+
+    & tr:first-child {
+      & td:last-child {
+        color: $color7;
+      }
+    }
+  }
+}

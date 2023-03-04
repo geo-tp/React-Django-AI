@@ -1,0 +1,23 @@
+.base-button {
+  margin-top: 10px;
+  background-color: $color3;
+  padding: 6px 12px;
+  border: 1px solid $color8;
+  border-radius: 10px;
+  font-size: 1.1em;
+  color: $color8;
+
+  &:hover {
+    background-color: $color8;
+    color: $color9;
+    cursor: pointer;
+  }
+
+  & i {
+    margin-right: 10px;
+  }
+
+  & span {
+    font-weight: bold;
+  }
+}

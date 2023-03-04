@@ -17,7 +17,7 @@ def classification_resnet50_parse_preds(preds, data=None) -> str:
 
     for i, prediction in enumerate(decoded_preds):
         name = prediction[1].replace("_", " ").capitalize()
-        percent = prediction[2] * 100
+        percent = round(prediction[2] * 100, 2)
         parsed_preds[i] = {"label": name, "percent": percent}
 
     return json.dumps(parsed_preds)
@@ -43,7 +43,7 @@ def detr_resnet50_parse_preds(preds, data) -> str:
 
         parsed_results[j] = {
             "label": DETR_RESNET_LABELS[label.item()],
-            "percent": score.item() * 100,
+            "percent": round(score.item() * 100, 2),
             "location": {"x1": box[0], "y1": box[1], "x2": box[2], "y2": box[3]},
         }
 

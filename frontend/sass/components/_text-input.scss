@@ -1,0 +1,40 @@
+.text-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  & label {
+    font-size: 0.8em;
+    color: $color3;
+  }
+
+  & textarea {
+    background-color: $color3;
+    border: 0;
+    color: $color9;
+    font-size: 1.1em;
+    border-radius: 10px;
+    height: 100px;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid $color3;
+    position: relative;
+    resize: none;
+
+    &:disabled {
+      background-color: $color2;
+      border: 1px solid $color3;
+    }
+
+    &:focus {
+      border: 1px solid $color8;
+      outline: none;
+    }
+  }
+
+  &--medium {
+    & textarea {
+      height: 250px;
+    }
+  }
+}
