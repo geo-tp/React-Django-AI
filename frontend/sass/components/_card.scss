@@ -4,7 +4,8 @@
   border: 1px solid $color3;
   border-radius: 10px;
   background-color: $color2;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  transition: all 200ms;
 
   &__header {
     display: flex;
@@ -46,11 +47,18 @@
     & .card__body {
       display: flex;
       justify-content: space-between;
-    }
 
-    & .card_footer {
-      & button {
+      @include laptop-design {
+        flex-direction: column-reverse;
       }
     }
+  }
+
+  @include tablet-design {
+    flex-basis: 48.5%;
+  }
+
+  @include mobile-design {
+    flex-basis: 99%;
   }
 }

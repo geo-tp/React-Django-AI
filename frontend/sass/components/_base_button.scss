@@ -6,6 +6,7 @@
   border-radius: 10px;
   font-size: 1.1em;
   color: $color8;
+  transition: all 200ms;
 
   &:hover {
     background-color: $color8;
@@ -19,5 +20,9 @@
 
   & span {
     font-weight: bold;
+  }
+
+  @include tablet-design {
+    width: 100%;
   }
 }

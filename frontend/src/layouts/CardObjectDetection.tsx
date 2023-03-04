@@ -25,7 +25,7 @@ export const CardObjectDetection = (props: {
         onSubmit={(e: FormEvent<HTMLFormElement>) =>
           props.submitHandler(
             e,
-            "image-classification",
+            "object-detection",
             "POST",
             "img",
             setDetectionValues,

@@ -58,6 +58,17 @@
       padding: 4px 6px;
       margin: 10px;
       border-radius: 100%;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
+  }
+
+  @include laptop-design {
+    height: 100px;
+    width: 100%;
+    margin-top: 20px;
   }
 }

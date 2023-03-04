@@ -11,7 +11,7 @@ export const PredictionTable = (props: {
       </thead>
 
       <tbody>
-        {Object.keys(props.prediction).map((index: string) => (
+        {/* {Object.keys(props.prediction).map((index: string) => (
           <tr
             key={`${
               props.prediction[parseInt(index)].label
@@ -20,12 +20,25 @@ export const PredictionTable = (props: {
             <td>{props.prediction[parseInt(index)].label}</td>
             <td>{props.prediction[parseInt(index)].percent} %</td>
           </tr>
-        ))}
-        {Object.keys(props.prediction).length === 0 && (
-          <div className="prediction-table__placeholder">
-            <i className="fa fa-magic-wand-sparkles"></i>
-          </div>
-        )}
+        ))} */}
+        <div className="prediction-table__row-container">
+          {Object.keys(props.prediction).map((index: string) => (
+            <tr
+              className="prediction-table__row"
+              key={`${
+                props.prediction[parseInt(index)].label
+              }-${index}-preds-row`}
+            >
+              <p>{props.prediction[parseInt(index)].label}</p>
+              <p>{props.prediction[parseInt(index)].percent} %</p>
+            </tr>
+          ))}
+          {Object.keys(props.prediction).length === 0 && (
+            <div className="prediction-table__placeholder">
+              <i className="fa fa-magic-wand-sparkles"></i>
+            </div>
+          )}
+        </div>
       </tbody>
     </table>
   );

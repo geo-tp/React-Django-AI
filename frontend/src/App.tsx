@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <InfoBanner content="Various Deep learning models deployed with a Django API, using Tensorflow, Keras and Pytorch. Try it below." />
+      <InfoBanner content="Various deep learning models deployed with a Django API, using Tensorflow, Keras and Pytorch. Try it below." />
       <HomePage />
       <Footer />
     </div>

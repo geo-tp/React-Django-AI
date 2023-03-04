@@ -5,4 +5,8 @@ footer {
   align-items: center;
   font-size: 0.6em;
   margin-bottom: 30px;
+
+  @include tablet-design {
+    margin-top: 20px;
+  }
 }

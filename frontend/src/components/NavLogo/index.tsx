@@ -1,10 +1,10 @@
-import Robot from "../../assets/img/robot.svg";
+import RobotSmall from "../../assets/img/robot-small.png";
 
 export const NavLogo = () => {
   return (
     <div className="nav-logo">
       <div className="nav-logo__icon">
-        <img src={Robot} alt="A robot's head" />
+        <img src={RobotSmall} alt="A robot's head" />
       </div>
       <h1>
         <span>Django</span>

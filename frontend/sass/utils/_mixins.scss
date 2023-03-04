@@ -1,0 +1,43 @@
+// RESPONSIVE
+
+@mixin small-mobile-design {
+  @media screen and (max-width: 420px) {
+    @content;
+  }
+}
+
+@mixin mobile-design {
+  @media screen and (max-width: 620px) {
+    @content;
+  }
+}
+
+@mixin tablet-design {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin laptop-design {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+// SHADOW
+
+@mixin big-shadow-inset {
+  box-shadow: 0px 0px 2px black inset;
+}
+
+@mixin big-shadow {
+  box-shadow: 0px 2px 15px $color1;
+}
+
+@mixin medium-shadow {
+  box-shadow: 0px 0px 5px $color1;
+}
+
+@mixin small-shadow {
+  box-shadow: 0px 0px 6px $color1;
+}
