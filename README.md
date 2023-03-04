@@ -9,6 +9,8 @@ Various Deep learning models deployed on a Django API with a React Frontend.
 - Image Classification
 - Object Detection
 
+![](presentation_djangoai.webp)
+
 You don't need a GPU to use it, the backend can run on a CPU only, it will require about 2GB of ram.
 
 Links
@@ -21,7 +23,7 @@ See Django AI live : [Demo Website]()
 Backend Installation
 ----------------
 
-Created with python 3.10.6
+Created with python 3.10.6. You can configure the django app with `/backend/config.settings.py`
 
 - ### Create Python Virtual Env
     ```
@@ -66,7 +68,7 @@ You can configure database with `/config/settings.py`
 Frontend Installation
 ------------------
 
-Created with Node v17.9.1 and NPM v8.11.0
+Created with Node v17.9.1 and NPM v8.11.0. You can configure the API url in `/frontend/src/api/index.ts`
 
 ### `npm install`
 
