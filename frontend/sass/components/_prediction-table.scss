@@ -5,6 +5,7 @@
   position: relative;
   padding-left: 10px;
   padding-right: 10px;
+
   &__placeholder {
     position: absolute;
     width: 100%;
@@ -24,20 +25,16 @@
     }
   }
 
-  & thead {
-    text-align: left;
+  & h3 {
+    padding-left: 10px;
+    border-bottom: 1px solid $color3;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
 
     & th {
       border-bottom: 1px solid $color3;
       height: 40px;
     }
-  }
-
-  & tbody {
-    padding: 2px 5px;
-    // min-height: 170px;
-    text-align: left;
-    font-size: 0.7em;
   }
 
   &__row-container {
@@ -62,6 +59,8 @@
     }
 
     & p {
+      font-size: 0.9em;
+      padding: 0px 10px;
       &:last-child {
         background-color: $color3;
         padding: 4px 8px;

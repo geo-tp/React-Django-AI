@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { BaseButton } from "../components/BaseButton";
 import { Card } from "../components/Card";
-import { ImageUpload } from "../components/ImageUpload";
+import { ObjectDetectionUpload } from "../components/ObjectDetectionUpload";
 import { Loader } from "../components/Loader";
 import { PredictForm } from "../components/PredictForm";
 import { PredictionTable } from "../components/PredictionTable";
@@ -11,10 +11,10 @@ export const CardObjectDetection = (props: {
   uploadHandler: Function;
 }) => {
   const [detectionValues, setDetectionValues] = useState<{
-    [key: string]: { label: string; percent: number };
+    [key: string]: any;
   }>({});
 
-  const [inMemoryImg, setInMemoryImg] = useState("");
+  const [urlImg, setUrlImg] = useState("");
   const [loading, setLoading] = useState(false);
 
   return (
@@ -33,13 +33,17 @@ export const CardObjectDetection = (props: {
           )
         }
       >
-        <ImageUpload
-          uploadHandler={(e: ChangeEvent) =>
-            props.uploadHandler(e, setInMemoryImg)
-          }
-          inMemoryImg={inMemoryImg}
-          setInMemoryImg={setInMemoryImg}
-        />
+        <div>
+          <ObjectDetectionUpload
+            uploadHandler={(e: ChangeEvent) =>
+              props.uploadHandler(e, setUrlImg)
+            }
+            urlImg={urlImg}
+            setUrlImg={setUrlImg}
+            prediction={detectionValues}
+            setPrediction={setDetectionValues}
+          />
+        </div>
         <BaseButton label="Predict" icon="magic-wand-sparkles" />
       </PredictForm>
       <PredictionTable prediction={detectionValues} />

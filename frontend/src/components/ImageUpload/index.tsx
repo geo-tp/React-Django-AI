@@ -1,26 +1,32 @@
+import { RefObject } from "react";
+
 export const ImageUpload = (props: {
   uploadHandler: Function;
-  inMemoryImg: string;
-  setInMemoryImg: Function;
+  urlImg: string;
+  setUrlImg: Function;
+  setPrediction: Function;
+  imgRef?: RefObject<HTMLImageElement>;
 }) => {
+  const handleCloseClick = () => {
+    props.setUrlImg("");
+    props.setPrediction({});
+  };
+
   return (
     <div className="image-upload">
       <label htmlFor="file-upload">
         <i className="fa fa-download"></i>
         <span>Image Here</span>
       </label>
-      {props.inMemoryImg && (
+      {props.urlImg && (
         <div className="image-upload__preview">
-          <img src={props.inMemoryImg} alt="" />
-          <i
-            className="fa fa-close"
-            onClick={() => props.setInMemoryImg("")}
-          ></i>
+          <img src={props.urlImg} alt="currently uploaded" ref={props.imgRef} />
+          <i className="fa fa-close" onClick={() => handleCloseClick()}></i>
         </div>
       )}
 
       <input
-        style={{ visibility: props.inMemoryImg ? "hidden" : "visible" }}
+        style={{ visibility: props.urlImg ? "hidden" : "visible" }}
         onChange={(e) => props.uploadHandler(e)}
         id="file-upload"
         type="file"

@@ -251,17 +251,15 @@ a {
   font-size: 6em;
   color: #444648;
 }
-.prediction-table thead {
-  text-align: left;
+.prediction-table h3 {
+  padding-left: 10px;
+  border-bottom: 1px solid #444648;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
 }
-.prediction-table thead th {
+.prediction-table h3 th {
   border-bottom: 1px solid #444648;
   height: 40px;
-}
-.prediction-table tbody {
-  padding: 2px 5px;
-  text-align: left;
-  font-size: 0.7em;
 }
 .prediction-table__row-container {
   height: 200px;
@@ -278,6 +276,10 @@ a {
 }
 .prediction-table__row:last-child {
   border-bottom: none;
+}
+.prediction-table__row p {
+  font-size: 0.9em;
+  padding: 0px 10px;
 }
 .prediction-table__row p:last-child {
   background-color: #444648;
@@ -313,7 +315,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 101;
 }
 
 .loader__element {
@@ -400,6 +402,7 @@ a {
   bottom: 0;
   opacity: 0;
   cursor: pointer;
+  z-index: 100;
 }
 .image-upload__preview img {
   border-radius: 10px;
@@ -422,16 +425,29 @@ a {
   margin: 10px;
   border-radius: 100%;
   cursor: pointer;
+  z-index: 10;
 }
 .image-upload__preview i:hover {
   opacity: 0.8;
 }
 @media screen and (max-width: 1200px) {
   .image-upload {
-    height: 100px;
-    width: 100%;
     margin-top: 20px;
   }
+}
+
+.object-detection-upload {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  height: 100%;
+}
+.object-detection-upload canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .header {

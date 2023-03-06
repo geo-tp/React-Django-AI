@@ -5,7 +5,6 @@ export const PredictForm = (props: {
   onSubmit: Function;
   isImgForm?: boolean;
 }) => {
-  console.log("IMG FORM", props.isImgForm);
   const isImgForm = props.isImgForm || false;
   return (
     <form

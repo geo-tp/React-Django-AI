@@ -14,7 +14,8 @@ export const CardImageClassification = (props: {
     [key: string]: { label: string; percent: number };
   }>({});
 
-  const [inMemoryImg, setInMemoryImg] = useState("");
+  const [urlImg, setUrlImg] = useState("");
+
   const [loading, setLoading] = useState(false);
 
   return (
@@ -34,11 +35,10 @@ export const CardImageClassification = (props: {
         }
       >
         <ImageUpload
-          uploadHandler={(e: ChangeEvent) =>
-            props.uploadHandler(e, setInMemoryImg)
-          }
-          inMemoryImg={inMemoryImg}
-          setInMemoryImg={setInMemoryImg}
+          uploadHandler={(e: ChangeEvent) => props.uploadHandler(e, setUrlImg)}
+          urlImg={urlImg}
+          setUrlImg={setUrlImg}
+          setPrediction={setClassificationValues}
         />
         <BaseButton label="Predict" icon="magic-wand-sparkles" />
       </PredictForm>

@@ -23,7 +23,7 @@ See Django AI live : [Demo Website]()
 Backend Installation
 ----------------
 
-Created with python 3.10.6. You can configure the django app with `/backend/config.settings.py`
+Created with python 3.10.6. You can configure the django app with `/backend/config/settings.py`
 
 - ### Create Python Virtual Env
     ```
