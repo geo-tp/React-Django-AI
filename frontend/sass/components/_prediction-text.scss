@@ -14,4 +14,8 @@
   &--red {
     border: 1px solid $color6;
   }
+
+  @include tablet-design {
+    margin-left: 10px;
+  }
 }

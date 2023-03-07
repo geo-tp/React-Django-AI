@@ -18,7 +18,7 @@ Links
 
 See created design : [Figma Template](https://www.figma.com/file/K1vigi10V0GWykfVX2mgVA/DjangoAI?node-id=0%3A1&t=qQOOw75kN5njkQeu-1)
 
-See Django AI live : [Demo Website]()
+See Django AI live : [Demo Website](https://geo-tp.github.io/React-Django-AI) (frontend only)
 
 Backend Installation
 ----------------

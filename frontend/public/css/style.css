@@ -225,6 +225,11 @@ a {
 .prediction-text--red {
   border: 1px solid #d03a3b;
 }
+@media screen and (max-width: 900px) {
+  .prediction-text {
+    margin-left: 10px;
+  }
+}
 
 .prediction-table {
   border-radius: 20px;
